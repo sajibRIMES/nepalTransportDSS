@@ -1,0 +1,61 @@
+
+<mat-form-field> 
+<mat-label>Select a Station</mat-label>
+
+    <mat-select [(value)]="selectedStation" (valueChange)="stationClicked($event)">
+        <mat-option *ngFor="let station of stationArray" [value]="station.st_code">
+        {{station.st_name}}
+        </mat-option>
+
+    </mat-select>
+
+</mat-form-field>
+
+<button (click)="stationClicked(selectedStation)">Return Station Details</button>
+
+
+<p>SELECTED STATION DETAILS</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Station Code </th>
+            <th> Station Name </th>
+            <th> Lat </th>
+            <th> Lon </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let station of stationDetails">
+            <td>{{station.st_code}}</td>
+            <td>{{station.st_name}}</td>
+            <td>{{station.lat}}</td>
+            <td>{{station.lon}}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+
+<p>LIST OF ALL STATIONS</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Station Code </th>
+            <th> Station Name </th>
+            <th> Lat </th>
+            <th> Lon </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let station of stationArray">
+            <td (click)="stationClicked(station.st_code)">{{station.st_code}}</td>
+            <td>{{station.st_name}}</td>
+            <td>{{station.lat}}</td>
+            <td>{{station.lon}}</td>
+
+        </tr>
+    </tbody>
+</table>

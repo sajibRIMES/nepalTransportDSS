@@ -1,0 +1,56 @@
+
+<!-- [matMenuTriggerFor]="menu" -->
+
+<button mat-mini-fab 
+
+(click)="onPress()"
+style="background-color:white;color:black;"
+
+>
+    <mat-icon *ngIf="display">dashboard</mat-icon>
+    <mat-icon *ngIf="!display">close</mat-icon>
+  </button>
+
+
+  <mat-menu #menu="matMenu">
+
+    <button mat-mini-fab 
+    matTooltip="Add Map Layer" 
+    [color]="c1" 
+    style="margin-left:15px;margin-right:5px;"
+    (mouseover)="c1 = 'warn'"
+    (mouseout)="c1 = 'primary'" 
+    >      
+    <mat-icon>donut_small</mat-icon>
+    </button>
+    
+    <button mat-mini-fab 
+    matTooltip="Print" 
+    [color]="c2"
+    (mouseover)="c2 = 'warn'"
+    (mouseout)="c2 = 'primary'" 
+    style="margin-left:5px;margin-right:5px;" >
+      <mat-icon>print</mat-icon>
+    </button>
+    
+    <button mat-mini-fab 
+    matTooltip="Share map" 
+    [color]="c3" 
+    (mouseover)="c3 = 'warn'"
+    (mouseout)="c3 = 'primary'" 
+    style="margin-left:5px;margin-right:5px;">
+      <mat-icon>share_reviews</mat-icon>
+    </button>
+
+        
+    <button mat-mini-fab 
+    matTooltip="Draw" 
+    [color]="c4" 
+    (mouseover)="c4 = 'warn'"
+    (mouseout)="c4 = 'primary'" 
+    style="margin-left:5px;margin-right:15px;">
+        <mat-icon>edit</mat-icon>
+    </button>
+  
+</mat-menu>
+  

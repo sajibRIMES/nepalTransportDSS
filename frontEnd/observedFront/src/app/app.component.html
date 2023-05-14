@@ -1,0 +1,76 @@
+<mat-toolbar class="custom-toolbar">
+  
+    <!-- <button (click)="mapSideNav.toggle()" mat-icon-button class="example-icon" aria-label="toolbar">
+      <mat-icon>menu</mat-icon>
+    </button> -->
+
+
+    <button routerLink="" mat-icon-button class="custom-toolbar">
+    <!-- <mat-icon style="color: white;border-width: 1rem;background-color: transparent;border-color: transparent;" svgIcon="home"></mat-icon>  -->
+    <mat-icon class="icon-display" svgIcon="home"></mat-icon> 
+
+    <!-- <span class="custom-font-1">  Climate Atlas (Bangladesh)</span> -->
+    <span class="custom-font-1">  Transport Portal (Nepal)</span>
+    </button>
+
+   <span class="example-spacer"></span>
+   <button routerLink="" class="white-icon"> MAP VIEWER  </button>
+
+   <button routerLink="observedClimatology" class="white-icon"> MAP NARRATOR </button>
+
+   <button routerLink="stationObserved" class="white-icon"> RETRIEVING DATA </button>
+   <button routerLink="" class="white-icon"> HOW TO USE? </button>
+
+    
+  </mat-toolbar>
+
+<!-- <mat-menu #appMenu1="matMenu" xPosition="after" yPosition="below">
+    <button mat-menu-item [mat-menu-trigger-for]="observedMenu">Observed</button>
+</mat-menu>
+
+<mat-menu #appMenu2="matMenu" xPosition="after" yPosition="below">
+    <button mat-menu-item [mat-menu-trigger-for]="worldCoverMenu">World Cover</button>
+</mat-menu> -->
+
+<!-- 
+<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button> -->
+
+<mat-menu #observedMenu="matMenu">
+    <button routerLink="stations" mat-menu-item>STATIONS</button>
+    <button routerLink="observed" mat-menu-item>OBSERVED</button>
+    <button routerLink="stationObserved" mat-menu-item>3-HOURLY</button>
+</mat-menu>
+
+<mat-menu #worldCoverMenu="matMenu">
+    <ng-template matMenuContent>
+        <button routerLink="observedClimatology" mat-menu-item>ENACTS</button>
+        <button routerLink="worldCover" mat-menu-item>World Cover</button>
+    </ng-template>
+
+</mat-menu>
+
+
+
+
+<mat-sidenav-container>
+  
+    <mat-sidenav #mapSideNav mode="over">
+        
+        <button routerLink="stations" class ="m-1 btn btn-light btn-outline-primary"> STATIONS</button>
+        <mat-divider></mat-divider>
+        <button routerLink="observed" class ="m-1 btn btn-light btn-outline-primary"> OBSERVED </button>
+        <mat-divider></mat-divider>
+        <button routerLink="stationObserved" class ="m-1 btn btn-light btn-outline-primary" Button> 3-HOURLY</button>
+        <mat-divider></mat-divider>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
+
+
+
+

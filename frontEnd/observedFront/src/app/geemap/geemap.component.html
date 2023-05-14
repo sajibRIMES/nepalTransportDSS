@@ -1,0 +1,363 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<div class="map-container">
+  <div class="map-frame">
+
+    <div id="map" >  </div>
+
+          <div class="upperTab">
+              
+                <!-- Three Tabs -->
+                <div style="position:absolute;right:0px;">
+                  <mat-tab-group 
+                  [(selectedIndex)]=selectedIndex (click)="tabClicked(selectedIndex)">
+                    <mat-tab  label="OBSERVED" ></mat-tab>
+                    <mat-tab  label="FORECAST"></mat-tab>
+                    <mat-tab  label="PROJECTED"></mat-tab>
+                  </mat-tab-group>
+                </div>
+  
+            <!-- Active Forecast Upper Form -->
+            <div *ngIf="isActiveForecast" 
+            style="position:absolute;z-index:1000;left:0px; ;margin-top:10px !important;">
+
+              <form [formGroup]="form"> 
+
+                 <mat-form-field appearance="outline" 
+                 style="margin-left:10px; width: 230px; height:30px; ">
+                  <mat-select 
+                  formControlName="location"
+                  [(ngModel)]="selectedLocation" 
+                  (selectionChange)="onLocationChange($event)"
+                  name="location"
+                  >
+                    <mat-option *ngFor="let location of locations" [value]="location.value">
+                      {{location.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+    
+                  <mat-form-field appearance="outline" style="margin-left:10px; width: 230px; height:30px;">
+
+                    <mat-select 
+                    formControlName="parameter"
+                    [(ngModel)]="selectedWeatherParameter" 
+                    (selectionChange)="onSelectionChangeGenerateWeatherMap($event)"
+                    name="paremeter"
+                    >
+                      <mat-option *ngFor="let paremeter of parameters" [value]="paremeter.value">
+                        {{paremeter.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </form>
+            </div>
+
+            <!-- Active Observed Upper Form -->
+            <div *ngIf="isActiveObserved" 
+            style="position:absolute;z-index:1000;left:0px; ;margin-top:10px !important;">
+
+              <form [formGroup]="observedForm"> 
+
+                  <mat-form-field appearance="outline" 
+                  style="margin-left:10px; width: 230px; height:30px; ">
+                  <mat-select 
+                  formControlName="location"
+                  [(ngModel)]="selectedLocation" 
+                  (selectionChange)="onLocationChange($event)"
+                  name="location"
+                  >
+                    <mat-option *ngFor="let location of locations" [value]="location.value">
+                      {{location.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+    
+                  <mat-form-field appearance="outline" style="margin-left:10px; width: 230px; height:30px;">
+
+                    <mat-select 
+                    formControlName="observedParameters"
+                    [(ngModel)]="selectedObservedWeatherParameter" 
+                    (selectionChange)="onSelectionChangObservedWeatherMap($event)"
+                    name="paremeter"
+                    >
+                      <mat-option *ngFor="let paremeter of observedWeatherParameters" [value]="paremeter.value">
+                        {{paremeter.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+              </form>
+            </div>
+
+            
+            <!-- Active Projection Div -->
+            <!-- *ngIf="isActiveProjected"  -->
+            <div *ngIf="isActiveProjected"
+            style="position:absolute;z-index:2000;left:0px; ;margin-top:10px !important;">
+
+            <form [formGroup]="projectionForm"> 
+
+                <mat-form-field appearance="outline" 
+                style="margin-left:0px; width: 200px; height:30px; ">
+                  <mat-select 
+                  formControlName="location"
+                  [(ngModel)]="selectedLocation" 
+                  (selectionChange)="onLocationChange($event)"
+                  name="location"
+                 >
+                    <mat-option *ngFor="let location of locations" [value]="location.value">
+                      {{location.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+ 
+                <mat-form-field appearance="outline" style="margin-left:5px; width: 200px; height:30px;">
+
+                  <mat-select 
+                  formControlName="projectionParameter"
+                  [(ngModel)]="selectedProjectionWeatherParameter" 
+                  (selectionChange)="onSelectionChangeGenerateProjectionMap($event)"
+                  name="paremeter"
+                 >
+                    <mat-option *ngFor="let paremeter of projectionWeatherParameters" [value]="paremeter.value">
+                      {{paremeter.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+              
+                <!-- Time Period Selection -->
+              <mat-form-field appearance="outline" style="margin-left:5px; width: 200px; height:30px;">
+                <mat-select 
+                formControlName="time"
+                [(ngModel)]="selectedTimePeriod"
+                (selectionChange)="onSelectionChangeGenerateProjectionMap($event)"
+                name="time">
+
+                <mat-option *ngFor="let yearly of annual" [value]="yearly.value">
+                  {{yearly.viewValue}}
+                </mat-option>
+
+                <mat-optgroup label="Seasons"> 
+                  <mat-option *ngFor="let season of seasons" [value]="season.value">
+                    {{season.viewValue}}
+                  </mat-option>
+                </mat-optgroup>
+
+                <mat-optgroup label="Months"> 
+                  <mat-option *ngFor="let month of months" [value]="month.value">
+                    {{month.viewValue}}
+                  </mat-option>
+                </mat-optgroup>
+
+                </mat-select>
+              </mat-form-field>
+
+               <!-- Model Selection -->
+            <mat-form-field appearance="outline" style="margin-left:5px; width: 200px; height:30px;">
+              <!-- <mat-label style="font-size: 10px;">Selected GCM</mat-label> -->
+              <mat-select 
+              formControlName="model"
+              [(ngModel)]="selectedModel"
+              (selectionChange)="onSelectionChangeGenerateProjectionMap($event)"
+              name="model">
+
+                <mat-option *ngFor="let model of models" [value]="model.value">
+                  {{model.viewValue}}
+                </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+
+            <!-- Scenario Selection -->
+            <mat-form-field appearance="outline" style="margin-left:5px; width: 200px; height:30px;">
+              <!-- <mat-label style="font-size: 10px;">Selected Scenario</mat-label> -->
+              <mat-select 
+              formControlName="scenario"
+              [(ngModel)]="selectedScenario"
+              (selectionChange)="onSelectionChangeGenerateProjectionMap($event)"
+              name="scenario">
+
+                <mat-option *ngFor="let scenario of scenarios" [value]="scenario.value">
+                  {{scenario.viewValue}}
+                </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+
+           </form>
+
+            </div>
+
+          </div>
+        
+
+            <!-- Map Menu Icon -->
+            <div class="menuDiv" (click)="onPress()">
+              <app-menu></app-menu>
+            </div>
+
+            <div  class="overlayBackground"
+            style="position:absolute;z-index:1000;top:100px;" *ngIf="display" cdkDrag>
+              <app-nav-tree></app-nav-tree>
+            </div>
+
+                      <!-- Overlay Menu Icon -->
+            <div 
+            style="position: absolute;z-index: 1000;top:60px;padding:0px;right:10px;">
+              <button  mat-mini-fab style="background-color:white;color:black;" (click)="onLayerPress()">
+              <mat-icon *ngIf="layerDisplay">close</mat-icon>
+              <mat-icon *ngIf="!layerDisplay">layers</mat-icon>
+            </button>
+            </div>
+
+            <!-- Right Overlay -->
+            <div *ngIf="layerDisplay" class="overlayBackground-1" cdkDrag>
+              <app-data-access 
+              (onSelected)="onSelectedNode($event)">
+              </app-data-access>
+            </div>
+    
+          
+            <!-- Bottom Div -->
+          
+            <div  class="bottomDiv" style="position: absolute;z-index: 1000;bottom:45px;padding: 0px;height: 80px;" cdkDrag>
+
+              <!-- Active Forecast Max-Min -->
+                <div *ngIf="isActiveForecast" style="margin-left:2px; margin-top:5px;width:100%;align-items: center;">
+                  <app-weather-forecast></app-weather-forecast>
+                </div>
+
+                <!-- Active Observed Div -->
+                <div *ngIf="isActiveObserved" class="flex-parent-element" >
+
+                
+                  <p style="margin-top: 5px; margin-left: 20px">TIME PERIOD</p>
+                  <mat-slider style="top:25px; margin-left:-72px; margin-right: 100px;"
+                  min="1" 
+                  max="6" 
+                  step="1"
+                  showTickMarks 
+                  discrete 
+                  [displayWith]="formatObservedSliderLabel"
+                >
+                <input matSliderThumb 
+                [(ngModel)]="observedSliderYearValue" 
+                (change)="onObservedSlideChange(observedMax,selectedObservedWeatherParameter,observedSliderYearValue)">
+                </mat-slider>
+                
+                <div class="flex-child-element" 
+                style="position: absolute; width:20px; right: 50px;margin-top: 10px;">
+                
+                  <button 
+                  mat-fab  
+                  type="button" 
+                  (click)="showConfiguration(isoOpenConfigure)" 
+                  cdkOverlayOrigin #triggerConfigure="cdkOverlayOrigin">
+
+                  
+                    {{isoOpenConfigure ? "Close" : "FILTER"}}
+                  </button>
+
+                  <ng-template
+                      cdkConnectedOverlay
+                      [cdkConnectedOverlayOrigin]="triggerConfigure"
+                      [cdkConnectedOverlayOpen]="isoOpenConfigure"
+                    >
+                        
+                    <div  *ngIf="isoOpenConfigure" class="configurationBox"  > 
+                      <mat-slider 
+                      [min]="observedMin" 
+                      [max]="observedMax" 
+                      [step]="observedStep" 
+                      showTickMarks 
+                      discrete 
+                      [displayWith]="formatObservedLabel"
+                      [value]="">
+                      
+                      <input matSliderThumb 
+                      [(ngModel)]="observedValue" 
+                      (change)="onObservedSlideChange(observedValue,selectedObservedWeatherParameter,observedSliderYearValue)">
+
+                      </mat-slider>
+
+                    </div>
+
+                    </ng-template>
+
+                </div>
+                
+                </div>
+
+              <!-- Active Projected Div -->
+              <div *ngIf="isActiveProjected" class="flex-parent-element">
+
+                <p style="margin-top: 5px; margin-left: 10px">TIME PERIOD</p>
+                <mat-slider  style="top:25px; margin-left:-70px; margin-right: 150px;"
+                min="1" 
+                max="6" 
+                step="1"
+                showTickMarks 
+                discrete 
+                [displayWith]="formatProjectedSliderLabel"
+              >
+                <input 
+                matSliderThumb 
+                [(ngModel)]="yearSliderValue" 
+                (change)="onYearChange(projectedMax,yearSliderValue,selectedTimePeriod,selectedProjectionWeatherParameter,selectedScenario,selectedModel)">
+              </mat-slider>
+
+                <div class="flex-child-element" 
+                style="position: absolute; width:20px; right: 100px;margin-top: 10px;">
+                
+                  <button 
+                  mat-fab  
+                  type="button" 
+                  (click)="showConfiguration(isoOpenConfigure)" 
+                  cdkOverlayOrigin #triggerConfigure="cdkOverlayOrigin">
+
+                  
+                    {{isoOpenConfigure ? "Close" : "FILTER"}}
+                  </button>
+
+                  <ng-template
+                      cdkConnectedOverlay
+                      [cdkConnectedOverlayOrigin]="triggerConfigure"
+                      [cdkConnectedOverlayOpen]="isoOpenConfigure"
+                    >
+                        
+                    <div  *ngIf="isoOpenConfigure" class="configurationBox">
+
+                      <mat-slider 
+                      [min]="projectedMin" 
+                      [max]="projectedMax" 
+                      [step]="projectedStep" 
+                      [vertical]="true"
+                      showTickMarks 
+                      discrete 
+                      [displayWith]="formatForecastLabel">
+                      
+                      <!-- (change)="projectionLayer(projectedValue,selectedWeatherParameter,selectedScenario,selectedModel)" -->
+                      <input 
+                      matSliderThumb 
+                      [(ngModel)]="projectedValue" 
+                      (change)="onYearChange(projectedValue,yearSliderValue,selectedTimePeriod,selectedProjectionWeatherParameter,selectedScenario,selectedModel)"
+                    >
+
+                      </mat-slider>
+
+
+                    </div>
+                  </ng-template>
+            </div> 
+
+  </div>
+</div>
+
+
+
+

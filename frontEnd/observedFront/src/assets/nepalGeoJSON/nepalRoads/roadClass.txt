@@ -1,0 +1,15 @@
+'primary',
+'tertiary',
+'bridleway',
+'footway',
+'living_street',
+'path',
+'residential',
+'secondary',
+'service',
+'steps',
+'track_grade1',
+'track_grade3',
+'track',
+'trunk'
+

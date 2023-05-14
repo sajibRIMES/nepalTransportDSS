@@ -1,0 +1,2 @@
+declare module 'choices.js'
+

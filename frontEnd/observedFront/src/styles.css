@@ -1,0 +1,221 @@
+/* You can add global styles to this file, and also import other style files */
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+.right-aligned-header > .mat-content {
+    justify-content: space-between;
+}
+
+.mat-content > mat-panel-title, .mat-content > mat-panel-description {
+  flex: 0 0 auto;
+}
+
+/* Disable Body Scroller */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mat Slider Style */
+
+.mdc-slider--discrete .mdc-slider__thumb{
+  margin-top: 5px;
+  width: 100px !important;
+  height: 35px !important;
+  border-radius: 25px;
+
+  background: rgb(248,248,248);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgb(100, 149, 237);
+}
+
+.mdc-slider__thumb-knob {
+
+  display: none !important;
+  opacity: 0 !important;
+  background-color: white !important;
+
+}
+
+.mat-mdc-slider-visual-thumb .mat-ripple{
+  display: none !important;
+}
+
+.mdc-slider__value-indicator{
+
+  width: 5px !important;
+  background-color:whitesmoke !important;
+  color:blue !important;
+  transform: scale(2, 0.5) !important;
+
+  position: absolute !important;
+  margin-top: 5px !important;
+  margin-left:-25px !important;
+  padding-left: 0px !important;
+}
+
+.mat-mdc-slider .mdc-slider__value-indicator-text {
+  width: 5px !important;
+  padding-left: 0px !important;
+}
+
+.mdc-slider__value-indicator::before{
+  display: none !important;
+}
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.mat-mdc-form-field-infix {
+  min-height: 10px;
+}
+
+
+/* .mat-mdc-form-field-infix {
+  min-height: 10px;
+  } */
+  
+  /* .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 1px; 
+  padding-bottom: 1px;
+  } */
+  
+/* 
+
+.mdc-text-field--outlined .mdc-notched-outline {
+  z-index: 1;
+}
+
+.mat-mdc-select-arrow {
+  width: 10px;
+  height: 5px;
+  position: relative;
+  color:crimson !important;
+} */
+
+/* .mat-mdc-select-panel {
+    
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 255);
+
+
+  font-family: 'Verdana', sans-serif; 
+  font-size: 12px; 
+  font-weight: bold; 
+} */
+
+
+/* Mat Tab Style */
+/* .mat-mdc-tab-group{
+  background-color: black !important;
+}
+
+.mat-mdc-tab-header{
+ height: 40px !important;
+ padding-bottom: 1px !important;
+ margin-top:1px !important;;
+}
+
+mat-mdc-tab-label-container{
+  background-color: black !important;
+}
+
+.mat-mdc-tab-labels{
+
+height: 20px !important;
+top:0px !important;;
+margin-bottom: 0px !important;
+}
+
+.mat-mdc-tab-list{
+
+
+height: 30px !important;
+top:0px !important;;
+margin-bottom: 0px !important;
+}
+
+.mat-mdc-tab-body{
+  background-color: black !important;
+} */
+
+/* Upper Select  */
+
+/* .mat-mdc-form-field{
+  margin-top: 2px !important;
+  margin-left: 10px;
+  border-radius: 25px !important;
+}
+
+.mat-mdc-form-field .mat-label{
+  color:chartreuse !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color:darkslategray;
+  border-radius: 25px !important;
+}
+.mat-mdc-form-field-subscript-wrapper{
+  height: 0px !important;
+  border-radius: 25px !important;
+}
+.mat-mdc-form-field-flex{
+  padding-top: 0px;
+  padding-bottom: 2px;
+}
+
+.mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+  padding-top: 15px;
+  padding-bottom: 2px;
+}
+
+
+.mat-form-field-appearance-fill .mat-mdc-select-arrow-wrapper {
+  transform: translateY(-8px);
+}
+
+.mat-mdc-select-arrow svg {
+  fill: currentColor;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+}
+
+.mat-mdc-form-field-type-mat-select.mat-form-field-appearance-fill .mat-mdc-floating-label {
+  max-width: calc(100% - 18px);
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+  color:white !important;
+}
+
+.mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-floating-label {
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: -10px !important;
+  margin-top: -10px !important;
+  margin-left: 5px;
+  color:white !important;
+} */
+
+/* .mat-mdc-select {
+  display: inline-block;
+  width: 100%;
+  outline: none;
+  color: aqua !important;
+} */

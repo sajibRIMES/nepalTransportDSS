@@ -1,0 +1,302 @@
+
+  returnNationalRoadInfo(){
+
+    this.shapeService.getShapes().subscribe(data =>
+      {
+        this.nationalRoadInfo.push(data)
+      })
+  }
+
+
+  
+  // https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png
+  // https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}
+  // https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}
+  
+  // https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}
+  // https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png
+  // https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}
+
+  // https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png
+  // https://tileserver.memomaps.de/tilegen/{z}/{x}/{y}.png -- Bangla
+  // https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png -- Bangla Cyclone
+  // https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png
+
+  
+
+  // https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png
+
+   this.layerControl = {
+
+      baseLayers: {
+        "Gray Scale": mapLayers.layerOne,
+        "Bangla Labels": mapLayers.layerTwo,
+        "Topography": mapLayers.layerThree,
+        "Terrain":mapLayers.layerFive,
+        "Aerial":mapLayers.layerSix,
+        "Open Street": mapLayers.layerFour
+      },
+
+      overlays: {
+        "National Highway":  cities
+      }
+    };
+
+
+
+    ////
+
+
+
+    const selected=this.checklistSelection.selected;
+    // console.log(selected);
+    const currentLevel = this.getLevel(node);
+    // console.log(currentLevel);
+
+    const item=node.item;
+    // console.log(currentLevel);
+    const select=node.select;
+    // console.log(select);
+
+
+    // const isChecked=$event.checked;
+    const id=node.id;
+
+    
+
+
+    TREE_DATA=TREE_DATA.map((nodeUpdate)=>
+    { 
+
+
+
+      // console.log(startIndex);
+      // console.log(nodeUpdate.children[startIndex]);
+
+      // if (nodeUpdate.children[startIndex].id === id){
+
+      //   console.log(startIndex);
+
+      //   nodeUpdate.children[startIndex].select=isChecked;
+
+
+      //   if(isChecked){
+      //     this.newArray.push(nodeUpdate.children[startIndex])
+      //     // console.log(result,node);
+      //   }
+
+      //   else if(!isChecked){
+      //     const removeIndex = this.newArray.indexOf(nodeUpdate.children[startIndex]);
+      //     this.newArray.splice(removeIndex, 1);
+      //     console.log(result,node);
+      //   }
+
+      //   this.dataChange(this.newArray);
+
+      //   return nodeUpdate;
+      // }
+
+      return nodeUpdate;
+    });
+  
+    // console.log(TREE_DATA);
+
+
+    /////////
+
+        const mappedArray = this.observableNodeArray.map(node =>({      
+      name: node.item,
+    })
+
+  );
+
+
+  ////////    // this.addOverlay();
+
+    // console.log(this.nodeList);
+    // console.log(this.dataArray);
+    /////
+
+      dataChange$ = new BehaviorSubject<TodoItemNode[]>([]);
+  sharedParam$ = this.dataChange$.asObservable();
+
+
+  nodeArray$ = new BehaviorSubject<TodoItemNode[]>([]);
+  observableNodes$ = this.nodeArray$.asObservable();
+
+  changeParam(dataObj:any) {
+    // this.paramSource.next(dataObj);
+    this.dataChange$.next(dataObj);
+  }
+
+  nodeUpdate(node:any){
+    this.nodeArray$.next(node);
+  }
+
+
+=====================
+
+    <div class="mapOverlay">
+      
+      <!-- left menu and weather bar -->
+      <div class="flex-parent-element" style="z-index: 1000">
+
+        <div class="menuDiv" (click)="onPress()">
+          <app-menu></app-menu>
+        </div>
+
+        <div class="flex-child-element">
+          <app-weather-forecast></app-weather-forecast>
+        </div>
+
+        <div class="menuDiv" style="margin-left: 5px; margin-right:0px;">
+          <button  mat-mini-fab style="background-color:white;color:black;" (click)="onLayerPress()">
+          <mat-icon *ngIf="layerDisplay">close</mat-icon>
+          <mat-icon *ngIf="!layerDisplay">layers</mat-icon>
+        </button>
+        </div>
+
+      </div>
+
+      <!-- nav menu -->
+    
+      <div class="overlayBackground"  style="width:300px;" *ngIf="display">
+        <app-nav-tree></app-nav-tree>
+      </div>
+
+    </div>
+
+
+    // Fetch data
+        // if (container != null) {
+    //     container._leaflet_id = null;
+    // }
+
+    // src/assets/bdGeoJSON/nationalGeoRoads.geojson
+
+    const url = "/assets/bdGeoJSON/nationalGeoRoads.geojson";
+    // const georaster = await parseGeoRaster(url);
+    // console.log(georaster);
+
+    // fetch(url)
+    //   .then((response) =>{
+    //     return response.json();
+    //   }).then((data)=>{
+    //     console.log(data);
+    //     L.geoJSON(data).addTo(this.map);
+    //   });
+      
+
+// Adding Tiff layer
+
+import { GeoRaster } from 'georaster-layer-for-leaflet';
+import parseGeoRaster from 'georaster';
+import GeoRasterLayer from 'georaster-layer-for-leaflet';
+import {proj4} from 'proj4';
+
+
+
+  // Adding Tiff Layer on the Map
+  async imageOverlay(){
+
+    const url = "assets/enacts/Daily_Tmax/1981-2021_tmax_mean.tif";
+    // const georaster = await parseGeoRaster(url);
+    // console.log(georaster);
+
+    fetch(url)
+    .then(response => response.arrayBuffer())
+      .then(arrayBuffer => {
+        parseGeoRaster(arrayBuffer).then(georaster => {
+          console.log("georaster:", georaster);
+
+    var layer = new GeoRasterLayer({
+      georaster: georaster,
+      opacity: 0.7,
+      pixelValuesToColorFn: values => values[0] > 20 ? '#ff0000' : '#0000ff',
+      resolution: 64 // optional parameter for adjusting display resolution
+    });
+
+    layer.addTo(this.map);
+    this.map.fitBounds(layer.getBounds());
+
+
+      });
+    });
+
+    // var imageUrl='/Volumes/dssDevelopment/djangular/frontEnd/observedFront/src/assets/enacts/Daily_Tmax/1981-2021_tmax_mean.png';
+    // var imageUrl = "/assets/enacts/Daily_Tmax/1981-2021_tmax_mean.tif";
+    // var imageBounds: L.LatLngBoundsExpression = [[20.50,87.50], [26.75,93.50]];
+    // this.imageLayer = imageOverlay(imageUrl,imageBounds);
+    // this.imageLayer.addTo(this.map);
+
+  }
+
+  clearImageLayer(){
+    this.imageLayer.clearLayers();
+  }
+
+
+imageOverlay, latLng,
+
+
+
+    var markerIcon = {
+      icon: L.icon({
+        iconSize: [25, 41],
+        iconAnchor: [10, 41],
+        popupAnchor: [2, -40],
+        // specify the path here
+        iconUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png",
+        shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png"
+      })
+    };
+
+    const marker = L.marker([23.8103,89.915800],markerIcon).addTo(this.map);
+
+   const overlays = [
+    {name: 'Marker', layer: marker}]
+
+    // L.
+
+    // const legend = L.multiControl(overlays, {position:'topright', label: 'Control de capas'}).addTo(this.map);
+
+
+
+
+
+
+
+    Load MaxMin
+
+      // Loading Max-Min Upazilas
+  loadDailyMaxMin(){
+    this._weather_forecast_service.getDailyMaxMin().subscribe(
+
+
+       response=>{
+
+
+        this.maxTemp=response['Temperature']['maximum'];
+        this.minTemp=response['Temperature']['minimum'];
+
+        this.maxRainfall=response['Rainfall']['maximum'];
+        this.minRainfall=response['Rainfall']['minimum'];
+
+        this.maxWind=response['Wind Speed']['maximum'];
+        this.minWind=response['Wind Speed']['minimum'];
+
+        this.maxHumidity=response['Relative Humidity']['maximum'];
+        this.minHumidity=response['Relative Humidity']['minimum'];
+
+        // console.log('In Daily Max Min: ' + this.maxTemp);
+        this._weather_forecast_service.changeValue(this.maxTemp);
+
+        // console.log(this.maxTemp);
+      });
+
+     
+      // this._weather_forecast_service.changeValue(this.maxTemp);
+
+
+    }
+

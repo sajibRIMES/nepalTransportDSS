@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "404328703", "code": 5155, "fclass": "steps", "name": "बन्दीपुर बाटो", "ref": "F127", "oneway": "B", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F" }, "geometry": { "type": "LineString", "coordinates": [ [ 84.4047881, 27.9372952 ], [ 84.4049778, 27.9373236 ], [ 84.4054374, 27.9371843 ], [ 84.4056017, 27.937162 ] ] } }
+]
+}

@@ -1,0 +1,54 @@
+    // "observed_db": 
+    // {
+    //     "ENGINE": "django.db.backends.mysql", 
+    //     "NAME": "bmd_observe_data", 
+    //     "HOST": "127.0.0.1", 
+    //     "PORT": "3306", 
+    //     "USER": "root", 
+    //     "PASSWORD": ""
+    // },
+
+    // "bdClimatology": 
+    // {
+    //     "ENGINE": "django.db.backends.mysql", 
+    //     "NAME": "bdClimatology", 
+    //     "HOST": "127.0.0.1", 
+    //     "PORT": "3306", 
+    //     "USER": "root", 
+    //     "PASSWORD": ""
+    // },
+
+
+    // "weather_api": {
+    //     "ENGINE": "django.db.backends.mysql",
+    //     "NAME": "weather_api",
+    //     "HOST": "127.0.0.1", 
+    //     "PORT": "3306",
+    //     "USER": "root",
+    //     "PASSWORD": ""
+    // },
+
+    // "remoteGIS": 
+    // {
+        
+    //     "ENGINE": "django.contrib.gis.db.backends.postgis", 
+    //     "NAME": "geodatabase", 
+    //     "HOST": "114.31.28.235", 
+    //     "PORT": "5432", 
+    //     "USER": "gdbuser", 
+    //     "PASSWORD": "gdb!@#$"
+    // },
+
+    // "transport": 
+    // {
+    //     "ENGINE": "django.db.backends.postgresql_psycopg2", 
+    //     "NAME": "geodatabase", 
+    //     "HOST": "114.31.28.235", 
+    //     "PORT": "5432", 
+    //     "USER": "gdbuser", 
+    //     "PASSWORD": "gdb!@#$",
+    //     "OPTIONS": {
+    //         "options": "-c search_path=\"Transport\""
+    //     }
+
+    // }

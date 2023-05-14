@@ -1,0 +1,30 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+mat-sidenav-container{
+    height: 100vh;
+}
+
+mat-sidenav,mat-sidenav-content{
+    padding: 1px;
+}
+
+mat-sidenav {
+    background-color: lightcoral;
+    width: 200px;
+}
+
+.white-icon {
+    color: white;
+    border-width: 0rem;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:'FILL' 0,'wght' 100,'GRAD' -25,'opsz' 40;
+  color: black;
+  background-color: transparent;
+  border-color: transparent;
+}

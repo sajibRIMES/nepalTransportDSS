@@ -1,0 +1,618 @@
+[
+    {
+        "district_id": 1,
+        "District": "TAPLEJUNG",
+        "centroid": [
+            27.58225245453271,
+            87.82165948956137
+        ]
+    },
+    {
+        "district_id": 2,
+        "District": "PANCHTHAR",
+        "centroid": [
+            27.115129470268634,
+            87.77565891858853
+        ]
+    },
+    {
+        "district_id": 3,
+        "District": "ILAM",
+        "centroid": [
+            26.88129139752057,
+            87.90142953534735
+        ]
+    },
+    {
+        "district_id": 4,
+        "District": "JHAPA",
+        "centroid": [
+            26.584673836643926,
+            87.91309437442082
+        ]
+    },
+    {
+        "district_id": 5,
+        "District": "MORANG",
+        "centroid": [
+            26.61761672737918,
+            87.47005397090705
+        ]
+    },
+    {
+        "district_id": 6,
+        "District": "SUNSARI",
+        "centroid": [
+            26.650743785570036,
+            87.16990497060746
+        ]
+    },
+    {
+        "district_id": 7,
+        "District": "DHANKUTA",
+        "centroid": [
+            26.99106032546038,
+            87.33081132064186
+        ]
+    },
+    {
+        "district_id": 8,
+        "District": "TERHATHUM",
+        "centroid": [
+            27.154517797336815,
+            87.54881253479279
+        ]
+    },
+    {
+        "district_id": 9,
+        "District": "SANKHUWASABHA",
+        "centroid": [
+            27.58225807399972,
+            87.27807307686855
+        ]
+    },
+    {
+        "district_id": 10,
+        "District": "BHOJPUR",
+        "centroid": [
+            27.181943764993356,
+            87.06775305081398
+        ]
+    },
+    {
+        "district_id": 11,
+        "District": "SOLUKHUMBU",
+        "centroid": [
+            27.710649351677194,
+            86.72037686786854
+        ]
+    },
+    {
+        "district_id": 12,
+        "District": "OKHALDHUNGA",
+        "centroid": [
+            27.329630087565878,
+            86.41852043959105
+        ]
+    },
+    {
+        "district_id": 13,
+        "District": "KHOTANG",
+        "centroid": [
+            27.16823104219836,
+            86.78689888936553
+        ]
+    },
+    {
+        "district_id": 14,
+        "District": "UDAYAPUR",
+        "centroid": [
+            26.90320938696196,
+            86.68120988048926
+        ]
+    },
+    {
+        "district_id": 15,
+        "District": "SAPTARI",
+        "centroid": [
+            26.598250750956318,
+            86.74600015766484
+        ]
+    },
+    {
+        "district_id": 16,
+        "District": "SIRAHA",
+        "centroid": [
+            26.746587309847506,
+            86.34228317380065
+        ]
+    },
+    {
+        "district_id": 17,
+        "District": "DHANUSHA",
+        "centroid": [
+            26.828870322888733,
+            86.03374315264962
+        ]
+    },
+    {
+        "district_id": 18,
+        "District": "MAHOTTARI",
+        "centroid": [
+            26.87926144476734,
+            85.81977564796244
+        ]
+    },
+    {
+        "district_id": 19,
+        "District": "SARLAHI",
+        "centroid": [
+            26.9862872001028,
+            85.56517547113417
+        ]
+    },
+    {
+        "district_id": 20,
+        "District": "SINDHULI",
+        "centroid": [
+            27.20159474985009,
+            85.94363075173358
+        ]
+    },
+    {
+        "district_id": 21,
+        "District": "RAMECHHAP",
+        "centroid": [
+            27.513741477716668,
+            86.17723221253085
+        ]
+    },
+    {
+        "district_id": 22,
+        "District": "DOLAKHA",
+        "centroid": [
+            27.78584794622277,
+            86.19848026110576
+        ]
+    },
+    {
+        "district_id": 23,
+        "District": "SINDHUPALCHOK",
+        "centroid": [
+            27.915098512901444,
+            85.73949060364089
+        ]
+    },
+    {
+        "district_id": 24,
+        "District": "KABHREPALANCHOK",
+        "centroid": [
+            27.535483187482747,
+            85.61934543696086
+        ]
+    },
+    {
+        "district_id": 25,
+        "District": "LALITPUR",
+        "centroid": [
+            27.53981227234345,
+            85.34255149112573
+        ]
+    },
+    {
+        "district_id": 26,
+        "District": "BHAKTAPUR",
+        "centroid": [
+            27.67781668074963,
+            85.44064974233126
+        ]
+    },
+    {
+        "district_id": 27,
+        "District": "KATHMANDU",
+        "centroid": [
+            27.72832717180724,
+            85.34721390986608
+        ]
+    },
+    {
+        "district_id": 28,
+        "District": "NUWAKOT",
+        "centroid": [
+            27.915198820000498,
+            85.23524958809497
+        ]
+    },
+    {
+        "district_id": 29,
+        "District": "RASUWA",
+        "centroid": [
+            28.183373328151973,
+            85.41580886040532
+        ]
+    },
+    {
+        "district_id": 30,
+        "District": "DHADING",
+        "centroid": [
+            27.954832656833492,
+            84.96002304720393
+        ]
+    },
+    {
+        "district_id": 31,
+        "District": "MAKAWANPUR",
+        "centroid": [
+            27.470091517808772,
+            85.07905421571252
+        ]
+    },
+    {
+        "district_id": 32,
+        "District": "RAUTAHAT",
+        "centroid": [
+            27.001701762993896,
+            85.30219438874973
+        ]
+    },
+    {
+        "district_id": 33,
+        "District": "BARA",
+        "centroid": [
+            27.108086753598315,
+            85.07050507769304
+        ]
+    },
+    {
+        "district_id": 34,
+        "District": "PARSA",
+        "centroid": [
+            27.239813992644013,
+            84.78002684147997
+        ]
+    },
+    {
+        "district_id": 35,
+        "District": "CHITAWAN",
+        "centroid": [
+            27.58506777518173,
+            84.43439424277032
+        ]
+    },
+    {
+        "district_id": 36,
+        "District": "GORKHA",
+        "centroid": [
+            28.3189513786526,
+            84.79003940041038
+        ]
+    },
+    {
+        "district_id": 37,
+        "District": "LAMJUNG",
+        "centroid": [
+            28.289439557855026,
+            84.42991637698815
+        ]
+    },
+    {
+        "district_id": 38,
+        "District": "TANAHU",
+        "centroid": [
+            27.955494659728295,
+            84.25105814621426
+        ]
+    },
+    {
+        "district_id": 39,
+        "District": "SYANGJA",
+        "centroid": [
+            28.021230610206537,
+            83.80307837798172
+        ]
+    },
+    {
+        "district_id": 40,
+        "District": "KASKI",
+        "centroid": [
+            28.355069797936515,
+            83.99721143143944
+        ]
+    },
+    {
+        "district_id": 41,
+        "District": "MANANG",
+        "centroid": [
+            28.673041943025847,
+            84.22437807218085
+        ]
+    },
+    {
+        "district_id": 42,
+        "District": "MUSTANG",
+        "centroid": [
+            28.981436403644054,
+            83.85773731823514
+        ]
+    },
+    {
+        "district_id": 43,
+        "District": "MYAGDI",
+        "centroid": [
+            28.55326900242375,
+            83.45985690669872
+        ]
+    },
+    {
+        "district_id": 44,
+        "District": "PARBAT",
+        "centroid": [
+            28.211423639273075,
+            83.67875393943034
+        ]
+    },
+    {
+        "district_id": 45,
+        "District": "BAGLUNG",
+        "centroid": [
+            28.34762508019252,
+            83.25032727288225
+        ]
+    },
+    {
+        "district_id": 46,
+        "District": "GULMI",
+        "centroid": [
+            28.094017694660522,
+            83.30688920965702
+        ]
+    },
+    {
+        "district_id": 47,
+        "District": "PALPA",
+        "centroid": [
+            27.817496615782293,
+            83.62351625684282
+        ]
+    },
+    {
+        "district_id": 48,
+        "District": "NAWALPARASI_W",
+        "centroid": [
+            27.528375728156426,
+            83.73857514041254
+        ]
+    },
+    {
+        "district_id": 49,
+        "District": "RUPANDEHI",
+        "centroid": [
+            27.576802628702417,
+            83.38941523946127
+        ]
+    },
+    {
+        "district_id": 50,
+        "District": "KAPILBASTU",
+        "centroid": [
+            27.62792773976384,
+            82.98135128773507
+        ]
+    },
+    {
+        "district_id": 51,
+        "District": "ARGHAKHANCHI",
+        "centroid": [
+            27.90866981842263,
+            83.07918412142536
+        ]
+    },
+    {
+        "district_id": 52,
+        "District": "PYUTHAN",
+        "centroid": [
+            28.11557660000757,
+            82.86489019484938
+        ]
+    },
+    {
+        "district_id": 53,
+        "District": "ROLPA",
+        "centroid": [
+            28.344288312374868,
+            82.62792080018663
+        ]
+    },
+    {
+        "district_id": 54,
+        "District": "RUKUM_W",
+        "centroid": [
+            28.738958718965648,
+            82.46031617675467
+        ]
+    },
+    {
+        "district_id": 55,
+        "District": "SALYAN",
+        "centroid": [
+            28.396619908643146,
+            82.13861328691158
+        ]
+    },
+    {
+        "district_id": 56,
+        "District": "DANG",
+        "centroid": [
+            27.964266831713484,
+            82.41024784622603
+        ]
+    },
+    {
+        "district_id": 57,
+        "District": "BANKE",
+        "centroid": [
+            28.087291613597166,
+            81.82215553229767
+        ]
+    },
+    {
+        "district_id": 58,
+        "District": "BARDIYA",
+        "centroid": [
+            28.38378956738273,
+            81.40138171519294
+        ]
+    },
+    {
+        "district_id": 59,
+        "District": "SURKHET",
+        "centroid": [
+            28.641303525732468,
+            81.58627364285914
+        ]
+    },
+    {
+        "district_id": 60,
+        "District": "DAILEKH",
+        "centroid": [
+            28.8815085858895,
+            81.67874090746066
+        ]
+    },
+    {
+        "district_id": 61,
+        "District": "JAJARKOT",
+        "centroid": [
+            28.86550061138589,
+            82.16773599789929
+        ]
+    },
+    {
+        "district_id": 62,
+        "District": "DOLPA",
+        "centroid": [
+            29.170776053171185,
+            83.05203345690882
+        ]
+    },
+    {
+        "district_id": 63,
+        "District": "JUMLA",
+        "centroid": [
+            29.27183312417759,
+            82.21713095004411
+        ]
+    },
+    {
+        "district_id": 64,
+        "District": "KALIKOT",
+        "centroid": [
+            29.195234502811534,
+            81.75189768201739
+        ]
+    },
+    {
+        "district_id": 65,
+        "District": "MUGU",
+        "centroid": [
+            29.618193455604846,
+            82.37045656567778
+        ]
+    },
+    {
+        "district_id": 66,
+        "District": "HUMLA",
+        "centroid": [
+            30.032439495874627,
+            81.87972918036286
+        ]
+    },
+    {
+        "district_id": 67,
+        "District": "BAJURA",
+        "centroid": [
+            29.56144038057648,
+            81.56302715780896
+        ]
+    },
+    {
+        "district_id": 68,
+        "District": "BAJHANG",
+        "centroid": [
+            29.708362364344033,
+            81.17858264142835
+        ]
+    },
+    {
+        "district_id": 69,
+        "District": "ACHHAM",
+        "centroid": [
+            29.11268695822964,
+            81.29697796466053
+        ]
+    },
+    {
+        "district_id": 70,
+        "District": "DOTI",
+        "centroid": [
+            29.169760331691297,
+            80.89443559007313
+        ]
+    },
+    {
+        "district_id": 71,
+        "District": "KAILALI",
+        "centroid": [
+            28.741761196905323,
+            80.87909118978175
+        ]
+    },
+    {
+        "district_id": 72,
+        "District": "KANCHANPUR",
+        "centroid": [
+            28.861942216967563,
+            80.32166317574247
+        ]
+    },
+    {
+        "district_id": 73,
+        "District": "DADELDHURA",
+        "centroid": [
+            29.223239635493613,
+            80.48893588661375
+        ]
+    },
+    {
+        "district_id": 74,
+        "District": "BAITADI",
+        "centroid": [
+            29.50765811427188,
+            80.57138262833553
+        ]
+    },
+    {
+        "district_id": 75,
+        "District": "DARCHULA",
+        "centroid": [
+            29.948185078751838,
+            80.79117687272426
+        ]
+    },
+    {
+        "district_id": 76,
+        "District": "NAWALPARASI_E",
+        "centroid": [
+            27.687517093043216,
+            84.06203783958333
+        ]
+    },
+    {
+        "district_id": 77,
+        "District": "RUKUM_E",
+        "centroid": [
+            28.674111071875696,
+            82.81074902638487
+        ]
+    }
+]

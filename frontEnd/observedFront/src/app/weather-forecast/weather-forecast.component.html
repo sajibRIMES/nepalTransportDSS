@@ -1,0 +1,78 @@
+
+<mat-accordion style="flex: 0 0 100%;">
+
+  <mat-expansion-panel [expanded]="true">
+
+    <mat-expansion-panel-header class="right-aligned-header">
+      <mat-panel-title>
+        <span style="font-size: 16px; font-weight: bold;color:darkslategrey;"> Country &nbsp;</span> 
+        <span style="font-size: 16px; font-weight: bold;color:brown;">Max &nbsp;</span>
+        <span style="font-size: 14px;font-weight: bold;color:cadetblue;">/&nbsp; Min</span>
+      </mat-panel-title>
+
+      <mat-panel-description>
+      
+        Forecast Date: &nbsp;&nbsp;
+        <span style="font-size: 14px; font-weight: bold;color:darkslategrey;"> 
+          {{ dailyMaxMin[5]}}
+        </span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+  <div class ='dailyMaxMinDiv'>
+
+    
+      <mat-card class="maxMinCard">
+        
+        <h7 style="text-align: center;">
+
+          <i style="font-size: 18px; font-weight: bold;text-align:center;padding-top:5px;color:white;" class="fas fa-thermometer-half mr-2"></i>
+          &nbsp;
+          <span style="font-size: 18px; font-weight: bold;color: coral;">{{maxTemp}}</span>
+          <span style="font-size: 14px;color: cornflowerblue;">/{{minTemp}} °C</span>
+        </h7>
+    
+      </mat-card>
+    
+      <mat-card class="maxMinCard">
+        
+        <h7 style="text-align: center;">
+
+          <i style="font-size: 18px; font-weight: bold;text-align:center;padding-top:5px;color:white;" class="fas fa-cloud-rain mr-2"></i>
+          &nbsp;
+          <span style="font-size: 18px; font-weight: bold;color: coral;">{{maxRainfall}}</span>
+          <span style="font-size: 14px;color: cornflowerblue;">/{{minRainfall}} mm</span>
+        </h7>
+      </mat-card>
+    
+      <mat-card class="maxMinCard">
+
+        <h7 style="text-align: center;">
+
+          <i style="font-size: 18px; font-weight: bold;padding-top:5px;color:white;" class="fas fa-wind mr-2"></i>
+          &nbsp;
+          <span style="font-size: 18px; font-weight: bold;color: coral;">{{maxWind}}</span>
+          <span style="font-size: 14px;color: cornflowerblue;">/{{minWind}} km/h</span>
+        </h7>
+      </mat-card>
+    
+      <mat-card class="maxMinCard">
+
+              
+        <h7 style="text-align: center;">
+
+          <i style="font-size: 18px; font-weight: bold;padding-top:5px;color:white;" class="fas fa-tint mr-2"></i>
+          &nbsp;
+          <span style="font-size: 18px; font-weight: bold;color: coral;">{{maxHumidity}}</span>
+          <span style="font-size: 14px;color: cornflowerblue;">/{{minHumidity}} %</span>
+        </h7>
+      </mat-card>
+    
+    
+    
+    </div> 
+
+  </mat-expansion-panel>
+
+  </mat-accordion>
+

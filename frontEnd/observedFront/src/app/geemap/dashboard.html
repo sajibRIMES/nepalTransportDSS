@@ -1,0 +1,335 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<div class="map-container" >
+
+    <!-- menu Icon and app-weather-forecast -->
+    <div class="flex-parent-element">
+
+        <!-- Map Menu Icon -->
+        <div class="menuDiv" (click)="onPress()">
+          <app-menu></app-menu>
+        </div>
+      
+        <div class="flex-child-element">
+          <app-weather-forecast></app-weather-forecast>
+        </div>
+
+        <!-- Overlay Menu Icon -->
+        <div class="menuDiv" style="margin-left: 5px; margin-right:0px;">
+          <button  mat-mini-fab style="background-color:white;color:black;" (click)="onLayerPress()">
+          <mat-icon *ngIf="layerDisplay">close</mat-icon>
+          <mat-icon *ngIf="!layerDisplay">layers</mat-icon>
+        </button>
+        </div>
+
+    </div>
+
+       <!-- Tab Content -->
+       <div class="tabBackground">
+
+        <mat-tab-group dynamicHeight [(selectedIndex)]=selectedIndex (click)="tabClicked(selectedIndex)">
+    
+          <mat-tab label="OBSERVED" >
+                <!-- Observed Slider Div -->
+                  <!-- <span style="margin-top:25px;">Temperature Slider</span> -->
+
+                <div class="flex-parent-element" 
+                style="height: 50px;background:rgba(255, 255, 255, 0.2);border-radius: 0px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                border: 1px solid rgba(255, 255, 255, 255);"
+                
+                >
+
+               
+                  <mat-slider style="margin-left: 15px; margin-top:2px;" 
+                  [min]="min" 
+                  [max]="max" 
+                  [step]="step" 
+                  [vertical]="true"
+                  showTickMarks 
+                  discrete 
+                  [displayWith]="formatLabel">
+                  
+                  <input matSliderThumb [(ngModel)]="value" (change)="observedTempMaxLayer(value)">
+                </mat-slider>
+
+                <!-- Enacts Observed Overlay CDK -->
+                
+
+                  <button (click)="showBokehFigure(isOpen,showBokeh)" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+                    {{isOpen ? "Close" : "Grid Map"}}
+                  </button>
+
+                  <!-- This template displays the overlay content and is connected to the button -->
+                  <ng-template
+                    cdkConnectedOverlay
+                    [cdkConnectedOverlayOrigin]="trigger"
+                    [cdkConnectedOverlayOpen]="isOpen"
+                  >
+                  
+                                  
+                <div class="example-box"  cdkDrag>
+                  <div id="bokeh-id" *ngIf="showBokeh"></div>
+                </div>
+
+                  </ng-template>
+
+                </div>
+
+
+
+                
+
+          </mat-tab>
+
+
+        
+
+          <mat-tab label="FORECAST">
+
+            <mat-accordion>
+              <mat-expansion-panel [expanded]="true" hideToggle>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    THREE HOURLY FORECAST
+                  </mat-panel-title>
+   
+                </mat-expansion-panel-header>
+                <app-station-observed></app-station-observed>
+              </mat-expansion-panel>
+            </mat-accordion>
+            <!-- <div class="example-small-box mat-elevation-z4">
+              <app-station-observed></app-station-observed>
+            </div> -->
+          </mat-tab>
+    
+          <mat-tab label="PROJECTED">
+            <div class="example-small-box mat-elevation-z4">
+                <mat-slider style="margin-left: 15px; margin-top:20px;"
+                [min]="projectedMin" 
+                [max]="projectedMax" 
+                [step]="step" 
+                [vertical]="true"
+                showTickMarks 
+                discrete 
+                [displayWith]="formatLabel">
+                
+                <input matSliderThumb [(ngModel)]="projectedValue" (change)="tamxProjectionLayer(projectedValue)">
+                
+                </mat-slider>
+    
+            </div>
+          </mat-tab>
+    
+        </mat-tab-group>
+      </div>
+    <!-- Map Frame With Z-indexed Overlay Components -->
+    <div class="map-frame">
+
+      <!-- map component -->
+      <div id="map" >  </div>
+
+      <!-- Z-indexed Map Overlay -->
+        <div class="mapOverlay">
+
+
+            <!-- <div id="bokeh-id" *ngIf="showBokeh"></div> -->
+
+            <!-- Left Navigaton Menu -->
+            <div class="overlayBackground"  style="margin-top:50px;width:300px;" *ngIf="display">
+              <app-nav-tree></app-nav-tree>
+            </div>
+
+
+                      <!-- Observed Slider Div -->
+          <!-- <div style="margin-left: 100px;margin-top:200px;">
+
+
+            <mat-slider 
+            [min]="min" 
+            [max]="max" 
+            [step]="step" 
+            [vertical]="true"
+            showTickMarks 
+            discrete 
+            [displayWith]="formatLabel">
+            
+            <input matSliderThumb [(ngModel)]="value" (change)="observedTempMaxLayer(value)">
+            
+          </mat-slider>
+        </div> -->
+
+                <!-- Projected Slider Div -->
+
+
+
+        </div>
+
+      <!-- Z-indexed dependent Overlay Menu-->
+        <div *ngIf="layerDisplay" class="overlayBackground-1">
+          <app-data-access 
+          (onSelected)="onSelectedNode($event)">
+          </app-data-access>
+        </div>
+    
+
+
+  </div>
+
+
+</div>
+
+
+
+
+  <!-- <div  *ngIf="selectedNode" class="card" style="position: absolute;margin-left:600px;top:0;">
+    <h1>You selected :  {{ selectedNode.id}} and Checked Status is : {{selectedNode.selected}} </h1>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div  *ngIf="selectedNode" class="card" style="position: absolute;margin-left:600px;top:0;">
+    <h1>You selected :  {{ selectedNode.id}} and Checked Status is : {{selectedNode.selected}} </h1>
+  </div> -->
+
+
+  <!-- Observed Tab Contents -->
+  <div class="flex-parent-element" 
+  style="height: 50px;background:rgba(255, 255, 255, 0.2);border-radius: 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 255);"
+  
+  >
+
+ 
+    <mat-slider style="margin-left: 15px; margin-top:2px;" 
+    [min]="min" 
+    [max]="max" 
+    [step]="step" 
+    [vertical]="true"
+    showTickMarks 
+    discrete 
+    [displayWith]="formatLabel">
+    
+    <input matSliderThumb [(ngModel)]="value" (change)="observedTempMaxLayer(value)">
+  </mat-slider>
+
+  <!-- Enacts Observed Overlay CDK -->
+  
+
+    <button (click)="showBokehFigure(isOpen,showBokeh)" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+      {{isOpen ? "Close" : "Grid Map"}}
+    </button>
+
+    <!-- This template displays the overlay content and is connected to the button -->
+    <ng-template
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="trigger"
+      [cdkConnectedOverlayOpen]="isOpen"
+    >
+    
+                    
+  <div class="example-box"  cdkDrag>
+    <div id="bokeh-id" *ngIf="showBokeh"></div>
+  </div>
+
+    </ng-template>
+
+  </div>
+
+
+
+  <!-- Forecast Tab -->
+
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="true" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <!-- THREE HOURLY FORECAST -->
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+      <!-- <app-station-observed></app-station-observed> -->
+    </mat-expansion-panel>
+  </mat-accordion>
+  <!-- <div class="example-small-box mat-elevation-z4">
+    <app-station-observed></app-station-observed>
+  </div> -->
+
+ 
+  <div class="example-small-box mat-elevation-z4">
+    <mat-slider style="margin-left: 15px; margin-top:20px;"
+    [min]="projectedMin" 
+    [max]="projectedMax" 
+    [step]="step" 
+    [vertical]="true"
+    showTickMarks 
+    discrete 
+    [displayWith]="formatLabel">
+    
+    <input matSliderThumb [(ngModel)]="projectedValue" (change)="tamxProjectionLayer(projectedValue)">
+    
+    </mat-slider>
+
+</div>
+
+
+
+
+        <!-- Map Menu Icon -->
+        <div class="menuDiv" (click)="onPress()">
+          <app-menu></app-menu>
+        </div>
+      
+        <!-- Forecast Card -->
+        <div class="flex-child-element">
+          <app-weather-forecast></app-weather-forecast>
+        </div>
+
+        <!-- Overlay Menu Icon -->
+        <div class="menuDiv" style="margin-left: 5px; margin-right:0px;">
+          <button  mat-mini-fab style="background-color:white;color:black;" (click)="onLayerPress()">
+          <mat-icon *ngIf="layerDisplay">close</mat-icon>
+          <mat-icon *ngIf="!layerDisplay">layers</mat-icon>
+        </button>
+        </div>
+
+
+
+
+
+            <!-- <div id="bokeh-id" *ngIf="showBokeh"></div> -->
+            <div class="overlayBackground"  style="margin-top:50px;width:300px;" *ngIf="display">
+              <app-nav-tree></app-nav-tree>
+            </div>
+
+            
+
+      <!-- Z-indexed dependent Overlay Menu-->
+      <div *ngIf="layerDisplay" class="overlayBackground-1">
+        <app-data-access 
+        (onSelected)="onSelectedNode($event)">
+        </app-data-access>
+      </div>
+  

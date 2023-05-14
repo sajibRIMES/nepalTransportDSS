@@ -1,0 +1,99 @@
+<!-- 
+<mat-toolbar>
+    <button (click)="sidenav.toggle()" mat-icon-button class="example-icon" aria-label="toolbar">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Map Viewer</span>
+    <span class="example-spacer"></span>
+
+
+  </mat-toolbar>
+
+
+<mat-sidenav-container>
+  
+    <mat-sidenav #sidenav (opened)="log('opened')" (closed)="log('closed')" mode="over" [(opened)]="opened">
+    
+        <button routerLink="stations" class ="m-1 btn btn-light btn-outline-primary" Button> STATION LIST </button>
+
+    </mat-sidenav>
+    
+    
+    <mat-sidenav-content>
+        
+        <button class = "white-icon" (click)="sidenav.toggle()">
+            <mat-icon class="white-icon">
+                <span class="material-symbols-outlined">toggle_on</span>
+            </mat-icon>
+        </button>
+    </mat-sidenav-content>
+
+</mat-sidenav-container> -->
+
+
+
+
+<!-- <mat-menu #appMenu="matMenu" xPosition="before">
+    <button mat-menu-item [mat-menu-trigger-for]="observedMenu">Observed</button>
+    <button mat-menu-item [mat-menu-trigger-for]="worldCoverMenu">World Cover</button>
+</mat-menu>
+
+
+<button class="center" mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
+
+
+<mat-menu #observedMenu="matMenu">
+    <button mat-menu-item>Stations</button>
+    <button mat-menu-item>Daily</button>
+    <button mat-menu-item>Three Hourly</button>
+</mat-menu>
+
+<mat-menu #worldCoverMenu="matMenu">
+    <ng-template matMenuContent>
+        <button mat-menu-item>Tree Cover</button>
+        <button mat-menu-item>Shrubland</button>
+        <button mat-menu-item>Grassland</button>
+    </ng-template>
+
+</mat-menu> -->
+
+
+<!-- <mat-form-field>
+
+    <mat-label>Start Year: </mat-label>
+
+    <mat-select [(value)]="startYear">
+        <mat-option *ngFor="let year of startYears" [value]="year.value">
+            {{year.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>End Year: </mat-label>
+
+    <mat-select [(value)]="endYear">
+        <mat-option *ngFor="let year of endYears" [value]="year.value">
+            {{year.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Parameters: </mat-label>
+
+    <mat-select [(value)]="parameter">
+        <mat-option *ngFor="let parameter of parameters" [value]="parameter.value">
+            {{parameter.viewValue}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+{{startYear}}
+{{endYear}}
+{{parameter}} -->
+<!-- <h1> Hello Bokeh</h1> -->
+<div id="bokeh-id"></div>
+
+<!-- <div [innerHTML]="golabaljson | safe: 'html'"></div> -->

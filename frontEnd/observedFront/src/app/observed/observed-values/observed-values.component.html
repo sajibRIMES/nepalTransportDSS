@@ -1,0 +1,35 @@
+<p>OBSERVED VALUES</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> DATE-TIME</th>
+            <th> STATION CODE </th>
+            <th> STATION NAME </th>
+            <th> TEMP (Max) </th>
+            <th> TEMP (Min) </th>
+            <th> HUMIDITY (Max) </th>
+            <th> HUMIDITY (Min) </th>
+            <th> RAIN </th>
+            <th> WIND SPEED </th>
+            <th> SEA-LEVEL PRESSURE</th>
+            <th> CLOUDS </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let dataItem of observedArray">
+            <td>{{dataItem.date_time}}</td>
+            <td>{{dataItem.stcode}}</td>
+            <td>{{dataItem.st_name}}</td>
+            <td>{{dataItem.maximum_t}}</td>
+            <td>{{dataItem.minimum_t}}</td>
+            <td>{{dataItem.humidity_max}}</td>
+            <td>{{dataItem.humidity_min}}</td>
+            <td>{{dataItem.rain}}</td>
+            <td>{{dataItem.wind_speed}}</td>
+            <td>{{dataItem.sea_level_p}}</td>
+            <td>{{dataItem.clouds}}</td>
+        </tr>
+    </tbody>
+</table>
+

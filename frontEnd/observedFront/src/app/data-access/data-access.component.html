@@ -1,0 +1,49 @@
+<!-- {{dataArray |json}} -->
+<!-- <li *ngFor="let node of nodeList" (click)="onSelectedNode(node)">
+  {{ node.item }}
+</li> -->
+
+<div class="overlayDiv">
+
+  <!-- <mat-divider></mat-divider> -->
+  <div style="margin-top:15px;margin-left:5px;margin-right:5px;display:flex;justify-content: space-between;"> 
+    <p>View Map Layers </p> <mat-icon>info</mat-icon>  
+  </div>
+
+  <mat-accordion class="example-headers-align">
+  <!-- <p style="margin-top:15px;margin-left:15px;margin-bottom:1px;">Overlays</p> -->
+
+  <mat-expansion-panel class ="example-headers-align" [expanded]="true">
+
+    <mat-expansion-panel-header>
+         <mat-panel-title class="custom-font-1" style="margin-left:1px;">Overlays</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-selection-list #datas style="margin-top:-20px;">
+        <mat-list-option *ngFor="let node of nodeList" 
+        (click)="onSelectedNode(node,$event)"
+        [selected]="node.selected"
+        style="margin-top: 5px; padding-bottom: 2px;">
+          {{node.item}}
+
+          <mat-divider></mat-divider>
+
+        </mat-list-option>
+       
+      </mat-selection-list>
+    
+
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+  <!-- <p>
+    Options selected: {{datas.selectedOptions.selected.length}}
+  </p> -->
+
+</div>
+
+
+

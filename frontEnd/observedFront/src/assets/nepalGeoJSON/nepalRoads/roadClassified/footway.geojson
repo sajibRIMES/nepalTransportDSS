@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": "656013007", "code": 5153, "fclass": "footway", "name": "Patmara-Ghodasingh", "ref": "63DR008", "oneway": "B", "maxspeed": 0.0, "layer": 0.0, "bridge": "F", "tunnel": "F" }, "geometry": { "type": "LineString", "coordinates": [ [ 82.2148048, 29.3114892 ], [ 82.2153819, 29.3112214 ], [ 82.2157466, 29.3108753 ], [ 82.2158861, 29.3106695 ], [ 82.2173345, 29.3097901 ], [ 82.2179434, 29.3098088 ], [ 82.2187346, 29.309465 ], [ 82.2196519, 29.3092895 ], [ 82.2199631, 29.3092615 ], [ 82.2203949, 29.3090744 ], [ 82.2207865, 29.3092357 ], [ 82.2208428, 29.3092895 ] ] } }
+]
+}

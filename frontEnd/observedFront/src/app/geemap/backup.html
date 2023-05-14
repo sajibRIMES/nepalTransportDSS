@@ -1,0 +1,59 @@
+<!-- Observed Slider -->
+
+<mat-slider
+[min]="min" 
+[max]="max" 
+[step]="step" 
+[vertical]="true"
+showTickMarks 
+discrete 
+[displayWith]="formatLabel">
+
+<input matSliderThumb [(ngModel)]="value" (change)="observedTempMaxLayer(value)">
+</mat-slider>
+
+<button mat-mini-fab (click)="showBokehFigure(isOpen,showBokeh)" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  {{isOpen ? "Close" : "Grid Map"}}
+</button>
+
+
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+>
+    
+<div class="example-box"  cdkDrag>
+  <div id="bokeh-id" *ngIf="showBokeh"></div>
+</div>
+
+</ng-template>
+
+
+
+
+                  <!-- <div class="configurationBox"cdkDrag ></div> -->
+
+                  <!-- <mat-stepper orientation="vertical"  #stepper>
+
+                    <mat-step>
+                        <ng-template matStepLabel></ng-template>
+                    </mat-step>
+
+                    <mat-step>
+                      <ng-template matStepLabel></ng-template>
+                  </mat-step>
+
+                  </mat-stepper> -->
+                
+                    <!-- <p style="margin-top: 10px; margin-left: 50px">TIME PERIOD</p> -->
+                    <!-- <mat-slider 
+                    [min]="min" 
+                    [max]="max" 
+                    [step]="step" 
+                    showTickMarks 
+                    discrete 
+                    [displayWith]="formatLabel">
+                    
+                    <input matSliderThumb [(ngModel)]="value" (change)="observedTempMaxLayer(value)">
+                  </mat-slider> -->

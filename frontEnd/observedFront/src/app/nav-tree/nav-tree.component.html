@@ -1,0 +1,57 @@
+
+<div class="overlayDiv">
+
+  <div style="margin-top:15px;margin-left:5px;margin-right:5px;display:flex;justify-content: space-between;"> 
+    <p>Add Map Layers </p> <mat-icon>info</mat-icon>  
+  </div>
+
+  <mat-divider></mat-divider>
+
+<p style="margin-top:15px;margin-left:15px;margin-bottom:1px;">Overlays</p>
+<!-- <mat-divider></mat-divider> -->
+
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+
+
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding>
+      <mat-checkbox class="checklist-leaf-node"
+                    [checked]="checklistSelection.isSelected(node)"
+                    (change)="todoLeafItemSelectionToggle(node,$event)">
+                    
+      </mat-checkbox>
+      {{node.item}}
+    </mat-tree-node>
+    
+    
+  
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" 
+    class="custom-font-1" style="margin-top:1px;margin-left:15px; margin-bottom:-2vh;color:#2E8B57">
+
+     {{node.item}}
+
+      <button style="position:absolute; right:0px;" mat-icon-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.item">
+        <mat-icon class="mat-icon-rtl-mirror" >
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+
+    </mat-tree-node>
+
+
+  </mat-tree>
+
+</div>
+
+<!-- <div style="position: absolute;right: 0;top:0;">
+<app-data-access
+[nodeList]="observableNodeArray"
+(onSelected)="onSelectedNode($event)">
+</app-data-access>
+</div>
+
+<div *ngIf="selectedNode" class="card">
+  <h1>You selected {{ selectedNode.item }}</h1>
+</div> -->
+
+<!-- [dataArray]="observableNodeArray" -->
+<!-- (onSelected)="onSelectedItem($event)" -->
